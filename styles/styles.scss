@@ -1,0 +1,198 @@
+// Define variables
+$font-primary: 'Playfair Display', serif;
+$font-secondary: 'Montserrat', sans-serif;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-background: #f4f4f4;
+$color-header: #a1cdb6;
+$color-menu: #ef776e;
+$color-content: #f9cc6e;
+
+// Global styles
+body, html {
+  height: 100%;
+  margin: 0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: $font-primary;
+  font-weight: 100;
+  font-size: 1.7rem;
+}
+
+p {
+  font-family: $font-secondary;
+  font-size: 0.9rem;
+}
+
+input[type=text] {
+  background-color: transparent;
+  border: 1px solid $color-white;
+  color: $color-white;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: $color-white;
+  border: none;
+  color: $color-black;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  height: 100%;
+  padding: 5px 10px;
+  transform-style: preserve-3d;
+  position: relative;
+
+  &::before {
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-position: center center;
+    background-size: cover;
+    transform: translateZ(-100px) scale(2);
+    z-index: -10;
+  }
+}
+
+.header, .menu, .content, .footer {
+  padding: 5px 10px;
+}
+
+.header {
+  height: 100%;
+  transform-style: inherit;
+  position: relative;
+
+  &::before {
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-image: url("./assets/header.jpg");
+    background-position: center center;
+    background-size: cover;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    animation: fadein 2.5s;
+  }
+}
+
+.contact {
+  height: 70%;
+  transform-style: inherit;
+  position: relative;
+
+  &::before {
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-image: url("./assets/contact.jpg");
+    background-position: center center;
+    background-size: cover;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    animation: fadein 2.5s;
+  }
+}
+
+.wrapper {
+  display: flex;
+}
+
+.wrapper-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  padding: 2%;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 70%;
+  }
+}
+
+.icon {
+  text-align: center;
+}
+
+.icon1 {
+  text-align: center;
+  transition: all 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 10px grey;
+  }
+}
+
+.text1 {
+  text-align: center;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+    text-shadow: 0px 3px 3px grey;
+  }
+}
+
+.menu {
+  display: flex;
+  width: 150px;
+  background-color: $color-menu;
+  align-items: center;
+  height: 300px;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background-color: $color-content;
+}
+
+.footer {
+  background-color: $color-header;
+}
+
+.zoom {
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.wrapperforsub {
+  display: flex;
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: scaleX(1.1);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
